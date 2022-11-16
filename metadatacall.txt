@@ -1,4 +1,9 @@
+For VM to acces value from keyvault
+---------------------------------------
 $response = Invoke-RestMethod -Uri 'http://machineip/metadata/identity/oauth2/token?api-version&vault -Method GET -Headers @{Metadata ='true'}
 $response.access_token
 $result = Invoke-RestMethod -Uri https:?<URI> -Headers @{"Authorization" "Bearer $($response.access_token)"}
 $result : select id, value, contentType
+----------------------------------------
+fOR vm sku,stoage,n/w configurations etc
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
